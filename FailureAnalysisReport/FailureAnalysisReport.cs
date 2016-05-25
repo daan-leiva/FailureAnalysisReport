@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FailureAnalysisReport
 {
@@ -213,6 +214,45 @@ namespace FailureAnalysisReport
         {
             if (lastButtonClicked == ButtonType.ViewHours)
                 ViewHoursButton_Click(new object(), new EventArgs());
+        }
+
+        private void exportToExcelButton_Click(object sender, EventArgs e)
+        {
+            // check if empty textbox
+            if (estimatedHoursTextBox.Text.Length == 0)
+                return;
+
+            // check that estimated total hours contains an integer
+            int estimatedHours = -100;
+            if (!int.TryParse(estimatedHoursTextBox.Text, out estimatedHours) || estimatedHours < 0)
+            {
+                MessageBox.Show("Invalid number of estimated hours");
+                return;
+            }
+
+            // used as a filler
+            object misValue = System.Reflection.Missing.Value;
+
+            var xlApp = new Excel.Application();
+            var xlWorkbook = xlApp.Workbooks.Add();
+
+
+
+
+
+            xlApp.Visible = true;
+
+            System.Threading.Thread.Sleep(5000);
+
+            xlApp.Quit();
+        }
+
+        private void copyAlltoClipboard()
+        {
+            dataGridView.SelectAll();
+            DataObject dataObj = dataGridView.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
         }
     }
 }

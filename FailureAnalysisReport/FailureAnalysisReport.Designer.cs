@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.estimatedHoursTextBox = new System.Windows.Forms.TextBox();
             this.combinedTimeTrackingButton = new System.Windows.Forms.Button();
+            this.exportToExcelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,11 +173,22 @@
             this.combinedTimeTrackingButton.UseVisualStyleBackColor = true;
             this.combinedTimeTrackingButton.Click += new System.EventHandler(this.combinedTimeTrackingButton_Click);
             // 
+            // exportToExcelButton
+            // 
+            this.exportToExcelButton.Location = new System.Drawing.Point(804, 111);
+            this.exportToExcelButton.Name = "exportToExcelButton";
+            this.exportToExcelButton.Size = new System.Drawing.Size(75, 67);
+            this.exportToExcelButton.TabIndex = 13;
+            this.exportToExcelButton.Text = "Export To Excel Sheet";
+            this.exportToExcelButton.UseVisualStyleBackColor = true;
+            this.exportToExcelButton.Click += new System.EventHandler(this.exportToExcelButton_Click);
+            // 
             // FailureAnalysisReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 778);
+            this.Controls.Add(this.exportToExcelButton);
             this.Controls.Add(this.combinedTimeTrackingButton);
             this.Controls.Add(this.estimatedHoursTextBox);
             this.Controls.Add(this.label4);
@@ -214,6 +226,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox estimatedHoursTextBox;
         private System.Windows.Forms.Button combinedTimeTrackingButton;
+        private System.Windows.Forms.Button exportToExcelButton;
     }
 }
 
